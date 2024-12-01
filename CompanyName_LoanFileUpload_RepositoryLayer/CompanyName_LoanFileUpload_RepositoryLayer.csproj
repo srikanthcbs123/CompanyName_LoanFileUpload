@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CompanyName_LoanFileUpload.BusinessEntities\CompanyName_LoanFileUpload.BusinessEntities.csproj" />
+    <ProjectReference Include="..\CompanyName_LoanFileUpload_DBConectivity\CompanyName_LoanFileUpload_DBConectivity.csproj" />
+  </ItemGroup>
+
+</Project>
