@@ -10,6 +10,7 @@ namespace CompanyName_LoanFileUpload.BusinessEntities.Interfaces
     public interface IFilesUploadService
     {
         Task<FileUploadResponse> AddFileUpload(FileUploadDTO fileUploadDTO);
+      
         Task<List<FileUploadDTO>> GetFileUploadList();
         Task<FileUploadDTO> GetFileUploadDetailsById(int Id);
     }

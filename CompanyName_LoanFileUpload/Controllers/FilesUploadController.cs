@@ -11,11 +11,69 @@ namespace CompanyName_LoanFileUpload.Controllers
     [ApiController]
     public class FilesUploadController : ControllerBase
     {
-        private readonly IFilesUploadService _filesUploadService;
+        //Dependency Injection is used to develop loosly coupled architecture.
+        //(By using interfaces and interface implanted classe we can achieve loosly coupled architecture.)
+        //Depency injection used to avoid tightly coupling between the classes.
+        //Dependency injection TYPES we can implement in 3 ways at controller level
+        //1.constructor injection(Realtime used 99%)
+        //2.property injection
+        //3.method injection
+        #region 1.ConstructorInjection
+        //IN the  constructor Injection, inject/pass the dependecies to the constructor 
+        private readonly IFilesUploadService _filesUploadService;//constructor injection.
         public FilesUploadController(IFilesUploadService filesUploadService)
         {
             this._filesUploadService = filesUploadService;
         }
+        #endregion
+
+        #region 2.PropertyInjection
+        //In the property injection, the dependency is provided through a public property.
+      //  public IFilesUploadService FileUploadServiceAccess { get; set; }
+
+
+        #endregion
+
+        #region 3.MethodInjection
+
+        //public interface ICustomerDataAccess
+        //{
+        //    string GetCustomerName(int id);
+        //}
+
+        //public class CustomerDataAccess : ICustomerDataAccess
+        //{
+        //    public string GetCustomerName(int id)
+        //    {
+        //        //Write the logic to get the customer bame based on given id from the database in real time application
+
+        //        return "Name of the Customer: John Smith";
+        //    }
+        //}
+
+        //interface IDataAccessDependency
+        //{
+        //    void SetDependency(ICustomerDataAccess customerDataAccess);
+        //}
+
+        //public class CustomerBusinessLogic : IDataAccessDependency
+        //{
+        //    ICustomerDataAccess _customerDataAccess;
+
+        //    public void SetDependency(ICustomerDataAccess customerDataAccess)
+        //    {
+        //        _customerDataAccess = customerDataAccess;
+        //    }
+
+        //    public string GetCustomerName(int id)
+        //    {
+        //        return _customerDataAccess.GetCustomerName(id);
+        //    }
+        //}
+
+
+        #endregion 
+
 
         [HttpGet]
         [Route("GetAllFileUploadList")]
@@ -23,8 +81,13 @@ namespace CompanyName_LoanFileUpload.Controllers
 
         {
             try
-            {
+            {   //1.Constructor Injection to access the fileuploadservice Method.
                 var fileUploadList = await this._filesUploadService.GetFileUploadList();
+
+                //2.property Injection to access the fileuploadservice Method.
+                //var result2=await this.FileUploadServiceAccess.GetFileUploadList();
+
+
                 if (fileUploadList != null)
                 {
                     return StatusCode(StatusCodes.Status200OK, fileUploadList);
