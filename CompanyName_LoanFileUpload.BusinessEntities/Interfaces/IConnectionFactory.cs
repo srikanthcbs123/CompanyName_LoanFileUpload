@@ -9,6 +9,7 @@ namespace CompanyName_LoanFileUpload.BusinessEntities.Interfaces
 {
     public interface IConnectionFactory
     {
+        //int GetTotlacount();
        SqlConnection  GetHotelManagementSqlConnection();
     }
 }

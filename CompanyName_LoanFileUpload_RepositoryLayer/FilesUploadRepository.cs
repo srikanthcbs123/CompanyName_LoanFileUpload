@@ -24,6 +24,8 @@ namespace CompanyName_LoanFileUpload_RepositoryLayer
         public async Task<List<FileUpload>> GetFileUploadList()
         {
             List<FileUpload> lstfiles = new List<FileUpload>();
+
+           // string conectonstring = "Server=DESKTOP-AAO14OC;Database=hotelmanagement;integrated security=yes;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=True;";
             using (SqlConnection con = _connectionFactory.GetHotelManagementSqlConnection())//here we are getting the conection string
             {
                 SqlCommand cmd = new SqlCommand(StoredProcedureNames.GetFileUpload_SP, con);
