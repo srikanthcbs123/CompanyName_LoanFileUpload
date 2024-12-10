@@ -13,6 +13,26 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 //Add the classes &interface to inbult dependecy injection container like below way.
+#region  AddTransinetService
+/*
+Services.AddTransient():
+If any 3rd party apis comunication in your Api we can for this  services.
+AddTransient() method.
+
+By using Add Transient service each and every request new instance is created.
+if you have any subsequent request it will create another object also.
+Note:In one api if you call another api  i.e is subsequent request.
+
+
+ Note:
+•	Services.Addscoped and  services.addtransient almost same.
+The main difference is if you have any subsequent request(or)3rdparty api calling  in your service go for services.add transient().
+ 
+ */
+builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddTransient<IUserRepository, UserRepository>();
+#endregion
+
 #region AddScopedService
 /*
 Services.Addscoped():
