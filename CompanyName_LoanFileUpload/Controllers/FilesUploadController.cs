@@ -18,6 +18,7 @@ namespace CompanyName_LoanFileUpload.Controllers
         //1.constructor injection(Realtime used 99%)
         //2.property injection
         //3.method injection
+        //**You can use any one the type .realtime mainly used constructor injection
         #region 1.ConstructorInjection
         //IN the  constructor Injection, inject/pass the dependecies to the constructor 
         private readonly IFilesUploadService _filesUploadService;//constructor injection.
@@ -75,7 +76,7 @@ namespace CompanyName_LoanFileUpload.Controllers
         #endregion 
 
 
-        [HttpGet]
+        [HttpGet]//we call this as httpverbs  or http methods...
         [Route("GetAllFileUploadList")]
         public async Task<IActionResult> GetAllFileUploadList()
 

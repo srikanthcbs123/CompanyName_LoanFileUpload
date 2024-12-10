@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CompanyName_LoanFileUpload.BusinessEntities\CompanyName_LoanFileUpload.BusinessEntities.csproj" />
     <ProjectReference Include="..\CompanyName_LoanFileUpload_DBConectivity\CompanyName_LoanFileUpload_DBConectivity.csproj" />
   </ItemGroup>
